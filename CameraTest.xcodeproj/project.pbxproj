@@ -12,7 +12,6 @@
 		63C162071AD3300E00F34329 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C162061AD3300E00F34329 /* Images.xcassets */; };
 		63C1620A1AD3300E00F34329 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C162081AD3300E00F34329 /* LaunchScreen.xib */; };
 		63C162161AD3300E00F34329 /* CameraTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C162151AD3300E00F34329 /* CameraTestTests.swift */; };
-		F5A4F7681AD5C5E3005A3208 /* PhotoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A4F7671AD5C5E3005A3208 /* PhotoEditorViewController.swift */; };
 		F5E233101AD5D55A00A7389B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E2330F1AD5D55A00A7389B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		63C1620F1AD3300E00F34329 /* CameraTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C162141AD3300E00F34329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63C162151AD3300E00F34329 /* CameraTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTestTests.swift; sourceTree = "<group>"; };
-		F5A4F7671AD5C5E3005A3208 /* PhotoEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoEditorViewController.swift; sourceTree = "<group>"; };
 		F5E2330F1AD5D55A00A7389B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,7 +83,6 @@
 				63C162061AD3300E00F34329 /* Images.xcassets */,
 				63C162081AD3300E00F34329 /* LaunchScreen.xib */,
 				63C161FD1AD3300E00F34329 /* Supporting Files */,
-				F5A4F7671AD5C5E3005A3208 /* PhotoEditorViewController.swift */,
 			);
 			path = CameraTest;
 			sourceTree = "<group>";
@@ -217,7 +214,6 @@
 			files = (
 				F5E233101AD5D55A00A7389B /* ViewController.swift in Sources */,
 				63C162001AD3300E00F34329 /* AppDelegate.swift in Sources */,
-				F5A4F7681AD5C5E3005A3208 /* PhotoEditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
