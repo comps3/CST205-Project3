@@ -14,6 +14,7 @@
 		F51C8C871ADF062A0046420E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51C8C851ADF062A0046420E /* LaunchScreen.xib */; };
 		F51C8C931ADF062A0046420E /* iOS_Filter_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */; };
 		F51C8C9D1ADF06D70046420E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51C8C9C1ADF06D70046420E /* CoreImage.framework */; };
+		F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8CA11ADF17AE0046420E /* SobelFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		F51C8C911ADF062A0046420E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Filter_AppTests.swift; sourceTree = "<group>"; };
 		F51C8C9C1ADF06D70046420E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F51C8CA11ADF17AE0046420E /* SobelFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobelFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				F51C8C831ADF062A0046420E /* Images.xcassets */,
 				F51C8C851ADF062A0046420E /* LaunchScreen.xib */,
 				F51C8C7A1ADF062A0046420E /* Supporting Files */,
+				F51C8CA11ADF17AE0046420E /* SobelFilter.swift */,
 			);
 			path = "iOS Filter App";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				F51C8C7F1ADF062A0046420E /* ViewController.swift in Sources */,
 				F51C8C7D1ADF062A0046420E /* AppDelegate.swift in Sources */,
+				F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +425,7 @@
 				F51C8C981ADF062A0046420E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F51C8C991ADF062A0046420E /* Build configuration list for PBXNativeTarget "iOS Filter AppTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +434,7 @@
 				F51C8C9B1ADF062A0046420E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -15,8 +15,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
    
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-
-        
     }
     
     @IBAction func useCamera(sender: AnyObject) {
@@ -61,12 +59,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     if newMedia {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CIGaussianBlur", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CIPixellate", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CISepiaTone", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CIUnsharpMask", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CISepiaTone", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)

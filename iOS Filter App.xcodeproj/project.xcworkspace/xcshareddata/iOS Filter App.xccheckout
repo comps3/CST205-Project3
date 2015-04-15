@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>68B03C8E-4190-43B9-84CC-BD52067B57C0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOS Filter App</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>04246C68AFB5DC23EDA8BD368A878533976A1B60</key>
+		<string>https://github.com/tvnerd/CST205-Project3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS Filter App.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>04246C68AFB5DC23EDA8BD368A878533976A1B60</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/tvnerd/CST205-Project3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>04246C68AFB5DC23EDA8BD368A878533976A1B60</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04246C68AFB5DC23EDA8BD368A878533976A1B60</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CST205-Project3</string>
+		</dict>
+	</array>
+</dict>
+</plist>
