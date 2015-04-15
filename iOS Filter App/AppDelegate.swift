@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  CameraTest
+//  iOS Filter App
 //
-//  Created by David Cackette on 4/6/15.
-//  Copyright (c) 2015 David Cackette. All rights reserved.
+//  Created by Brian Huynh on 4/15/15.
+//  Copyright (c) 2015 Brian Huynh. All rights reserved.
 //
 
 import UIKit

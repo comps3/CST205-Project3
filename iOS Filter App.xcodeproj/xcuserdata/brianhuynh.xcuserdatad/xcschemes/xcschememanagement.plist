@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CameraTest.xcscheme</key>
+		<key>iOS Filter App.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>63C161F91AD3300E00F34329</key>
+		<key>F51C8C761ADF062A0046420E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63C1620E1AD3300E00F34329</key>
+		<key>F51C8C8B1ADF062A0046420E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

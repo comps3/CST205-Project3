@@ -1,3 +1,5 @@
+
+
 import UIKit
 import AVFoundation
 import MobileCoreServices
@@ -5,13 +7,16 @@ import MobileCoreServices
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    var newMedia: Bool?
+    var newMedia = false
     var context: CIContext!
     var currentFilter: CIFilter!
     var originalImage: UIImage!
     
+   
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+
+        
     }
     
     @IBAction func useCamera(sender: AnyObject) {
@@ -31,6 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     completion: nil)
                 newMedia = true
         }
+
     }
     
     @IBAction func useCameraRoll(sender: AnyObject) {
@@ -46,12 +52,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 imagePicker.allowsEditing = false
                 self.presentViewController(imagePicker, animated: true,
                     completion: nil)
-                newMedia = false
+                newMedia = true
         }
     }
     
-    @IBAction func changeFilter(sender: AnyObject) {
+    
+    @IBAction func pickFilter(sender: AnyObject) {
         
+    if newMedia {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIGaussianBlur", style: .Default, handler: setFilter))
@@ -62,6 +70,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
+      }
+    else {
+        let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .ActionSheet)
+        noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
+        presentViewController(noPhoto, animated: true, completion: nil)
+        }
         
     }
     
