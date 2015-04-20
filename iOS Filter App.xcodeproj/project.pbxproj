@@ -83,13 +83,13 @@
 		F51C8C791ADF062A0046420E /* iOS Filter App */ = {
 			isa = PBXGroup;
 			children = (
+				F56EFAA11AE4416500D359E7 /* Filters */,
 				F51C8C7C1ADF062A0046420E /* AppDelegate.swift */,
 				F51C8C7E1ADF062A0046420E /* ViewController.swift */,
 				F51C8C801ADF062A0046420E /* Main.storyboard */,
 				F51C8C831ADF062A0046420E /* Images.xcassets */,
 				F51C8C851ADF062A0046420E /* LaunchScreen.xib */,
 				F51C8C7A1ADF062A0046420E /* Supporting Files */,
-				F51C8CA11ADF17AE0046420E /* SobelFilter.swift */,
 			);
 			path = "iOS Filter App";
 			sourceTree = "<group>";
@@ -125,6 +125,14 @@
 				F51C8C9C1ADF06D70046420E /* CoreImage.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F56EFAA11AE4416500D359E7 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				F51C8CA11ADF17AE0046420E /* SobelFilter.swift */,
+			);
+			name = Filters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -11,7 +11,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var context: CIContext!
     var currentFilter: CIFilter!
     var originalImage: UIImage!
-    
    
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
@@ -59,9 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     if newMedia {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CISepiaTone", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CISepiaTone", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setSobelFilter))
         ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
@@ -83,6 +80,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         applyProcessing()
         
     }
+    
+    func setSobelFilter(action: UIAlertAction!) {
+        let filter = SobelFilter()
+        filter.inputImage = CIImage(image: originalImage)
+        let outputImage = filter.outputImage
+        let filteredImage = UIImage(CIImage: outputImage)!
+        self.imageView.image = filteredImage
+    }
+
     
     func applyProcessing() {
         
