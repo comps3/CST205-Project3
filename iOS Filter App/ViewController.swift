@@ -92,10 +92,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         filter.inputImage = CIImage(image: originalImage)
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
-    
         
-        self.imageView.image = filteredImage
+        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+    }
+    
+    func imageWithImage(image: UIImage, scaledToWidth: CGFloat) -> UIImage {
+        var oldWidth: CGFloat = image.size.width
+        var scaleFactor: CGFloat = scaledToWidth / oldWidth
+        
+        var newHeight = image.size.height * scaleFactor
+        var newWidth = oldWidth * scaleFactor
+        
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRect(x: 0,y: 0, width: newWidth, height: newHeight))
+        var newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        var rotatedImage = UIImage(CGImage:newImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)
+        UIGraphicsEndImageContext()
+        return rotatedImage!
     }
 
     
