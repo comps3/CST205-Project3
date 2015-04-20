@@ -63,6 +63,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
       }
+        
     else {
         let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .ActionSheet)
         noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
@@ -87,6 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
         self.imageView.image = filteredImage
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
     }
 
     
@@ -124,7 +126,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             } else if mediaType.isEqualToString(kUTTypeMovie as String) {
                 // Code to support video here
             }
-            
         }
     }
     
