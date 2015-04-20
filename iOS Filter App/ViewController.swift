@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
    
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        
     }
     
     @IBAction func useCamera(sender: AnyObject) {
@@ -69,8 +70,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
         presentViewController(noPhoto, animated: true, completion: nil)
         }
-        
     }
+    
+    @IBAction func saveFilteredPhoto(sender: AnyObject) {
+        UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+    }
+    
     
     func setFilter(action: UIAlertAction!) {
         
@@ -87,6 +92,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         filter.inputImage = CIImage(image: originalImage)
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
+    
+        
         self.imageView.image = filteredImage
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
     }

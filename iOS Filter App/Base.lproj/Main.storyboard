@@ -22,8 +22,19 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="UWA-Rl-E2r">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem width="309" style="plain" systemItem="fixedSpace" id="3Zs-v6-o4q"/>
-                                    <barButtonItem title="Save" id="Igr-09-bE3"/>
+                                    <barButtonItem width="292" style="plain" systemItem="fixedSpace" id="3Zs-v6-o4q"/>
+                                    <barButtonItem style="plain" id="LyN-UU-pu8">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VrA-8U-ca9">
+                                            <rect key="frame" x="295" y="7" width="60" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Done">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="saveFilteredPhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vC3-3W-gDP"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
