@@ -15,6 +15,7 @@
 		F51C8C931ADF062A0046420E /* iOS_Filter_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */; };
 		F51C8C9D1ADF06D70046420E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51C8C9C1ADF06D70046420E /* CoreImage.framework */; };
 		F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8CA11ADF17AE0046420E /* SobelFilter.swift */; };
+		F56726A31AE8410400875263 /* BrightenFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56726A21AE8410400875263 /* BrightenFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Filter_AppTests.swift; sourceTree = "<group>"; };
 		F51C8C9C1ADF06D70046420E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F51C8CA11ADF17AE0046420E /* SobelFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobelFilter.swift; sourceTree = "<group>"; };
+		F56726A21AE8410400875263 /* BrightenFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightenFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				F51C8CA11ADF17AE0046420E /* SobelFilter.swift */,
+				F56726A21AE8410400875263 /* BrightenFilter.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F56726A31AE8410400875263 /* BrightenFilter.swift in Sources */,
 				F51C8C7F1ADF062A0046420E /* ViewController.swift in Sources */,
 				F51C8C7D1ADF062A0046420E /* AppDelegate.swift in Sources */,
 				F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */,
