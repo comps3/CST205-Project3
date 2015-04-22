@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // MARK: - Camera method
+    
     @IBAction func useCamera(sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(
@@ -54,12 +56,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // MARK: - Filter Menu
     
     @IBAction func pickFilter(sender: AnyObject) {
         
     if newMedia {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
         ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setSobelFilter))
+        ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: setBrightenFilter))
         ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
@@ -71,6 +75,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(noPhoto, animated: true, completion: nil)
         }
     }
+    
+    // MARK: - Save Filtered Photos
     
     @IBAction func saveFilteredPhoto(sender: AnyObject) {
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
@@ -87,6 +93,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // MARK: - Custom Sobel Filter
+    
     func setSobelFilter(action: UIAlertAction!) {
         let filter = SobelFilter()
         filter.inputImage = CIImage(image: originalImage)
@@ -95,6 +103,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+    }
+    
+    // MARK: - Custom Brighten Filter
+    
+    func setBrightenFilter(action: UIAlertAction!) {
+        let filter = BrightenFilter()
+        filter.inputImage = CIImage(image: originalImage)
+        let outputImage = filter.outputImage
+        let filteredImage = UIImage(CIImage: outputImage)!
+        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
+        
     }
     
     func imageWithImage(image: UIImage, scaledToWidth: CGFloat) -> UIImage {
