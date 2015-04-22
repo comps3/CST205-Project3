@@ -64,6 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
         ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setSobelFilter))
         ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: setBrightenFilter))
+        ac.addAction(UIAlertAction(title: "Blur", style: .Default, handler: setBlurFilter))
         ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(ac, animated: true, completion: nil)
@@ -109,6 +110,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func setBrightenFilter(action: UIAlertAction!) {
         let filter = BrightenFilter()
+        filter.inputImage = CIImage(image: originalImage)
+        let outputImage = filter.outputImage
+        let filteredImage = UIImage(CIImage: outputImage)!
+        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
+        
+    }
+    
+    // MARK: - Custom Blur Filter
+    
+    func setBlurFilter(action: UIAlertAction!) {
+        let filter = Blur()
         filter.inputImage = CIImage(image: originalImage)
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
