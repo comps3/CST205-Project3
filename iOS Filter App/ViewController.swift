@@ -111,6 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setBrightenFilter(action: UIAlertAction!) {
         let filter = BrightenFilter()
         filter.inputImage = CIImage(image: originalImage)
+        filter.threshold = 0.2
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
         self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
@@ -158,6 +159,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = processedImage
     }
     
+    // MARK - Save Image from Camera Frame
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
@@ -173,8 +175,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             originalImage = image
             
             if (newMedia == true) {
-                UIImageWriteToSavedPhotosAlbum(image, self,
-                    "image:didFinishSavingWithError:contextInfo:", nil)
+                //UIImageWriteToSavedPhotosAlbum(image, self,
+                //    "image:didFinishSavingWithError:contextInfo:", nil)
             } else if mediaType.isEqualToString(kUTTypeMovie as String) {
                 // Code to support video here
             }

@@ -10,8 +10,9 @@ import CoreImage
 
 class BrightenFilter: CIFilter {
     
-    var kernel: CIKernel?
+    var kernel: CIColorKernel?
     var inputImage: CIImage?
+    var threshold: CGFloat = 0.4
     
     // MARK: - Initialization
     override init() {
@@ -27,24 +28,23 @@ class BrightenFilter: CIFilter {
     override var outputImage : CIImage! {
         if let inputImage = inputImage,
             let kernel = kernel {
-                let args = [inputImage as AnyObject]
-                let dod = inputImage.extent().rectByInsetting(dx: -1, dy: -1)
-                return kernel.applyWithExtent(dod, roiCallback: {
-                    (index, rect) in
-                    return rect.rectByInsetting(dx: -1, dy: -1)
-                    }, arguments: args)
+                let dod = inputImage.extent()
+                let args = [inputImage as AnyObject, threshold as AnyObject]
+                
+                return kernel.applyWithExtent(dod, arguments: args)
         }
         return nil
     }
     
     // MARK: Create Kernel
-    private func createKernel() -> CIKernel {
-        let kernelString = "kernel vec4 brightenEffect (sampler src) {\n" +
-                            "vec4 currentSource = sample(src, samplerCoord(src)); \n" +
-                            "currentSource.rgb = currentSource.rgb + 0.2 * currentSource.a; \n" +
-                                "return currentSource; \n" +
-                            "}"
-        return CIKernel(string: kernelString)
+    private func createKernel() -> CIColorKernel {
+        let kernelString =
+        "kernel vec4 brightenEffect (sampler src, float threshold) {\n" +
+        "   vec4 currentSource = sample(src, samplerCoord(src)); \n" +
+        "   currentSource.rgb = currentSource.rgb + threshold * currentSource.a; \n" +
+        "   return currentSource; \n" +
+        "}"
+        return CIColorKernel(string: kernelString)
     }
 }
 
