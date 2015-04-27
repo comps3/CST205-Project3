@@ -1,18 +1,17 @@
 //
-//  Invert.swift
+//  GreenRedFilter.swift
 //  iOS Filter App
 //
-//  Created by David Cackette on 4/27/15.
+//  Created by Brian Huynh on 4/27/15.
 //  Copyright (c) 2015 Brian Huynh. All rights reserved.
 //
 
 import CoreImage
 
-class Invert: CIFilter {
+class GreenRedFilter: CIFilter {
     
     var kernel: CIColorKernel?
     var inputImage: CIImage?
-    var threshold: CGFloat = 0.4
     
     // MARK: - Initialization
     override init() {
@@ -38,17 +37,17 @@ class Invert: CIFilter {
         return nil
     }
     
-    // MARK: Create Kernel
+    // MARK: Color Kernel
     private func createKernel() -> CIColorKernel {
         let kernelString =
-        "kernel vec4 _invertColor(sampler source_image) {\n" +
-            "vec4 pixValue;\n" +
-            "pixValue = sample(source_image, samplerCoord(source_image));\n" +
-            "pixValue.rgb = pixValue.aaa - pixValue.rgb;\n" +
-            "return pixValue;\n" +
+        "kernel vec4 greenRed (sampler src) {\n" +
+            "   float swap = 0.0; \n" +
+            "   vec4 currentSource = sample(src, samplerCoord(src)); \n" +
+            "   swap = currentSource.r; \n" +
+            "   currentSource.r = currentSource.g; \n" +
+            "   currentSource.g = swap; \n" +
+            "   return currentSource; \n" +
         "}"
         return CIColorKernel(string: kernelString)
     }
 }
-
-

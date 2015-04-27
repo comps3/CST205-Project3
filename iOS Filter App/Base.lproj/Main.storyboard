@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3n9-lY-ZkE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3n9-lY-ZkE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="hBR-A4-5t1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lOI-G8-eSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3n9-lY-ZkE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -22,13 +21,13 @@
                         <segue destination="yIx-Zn-tAi" kind="relationship" relationship="rootViewController" id="U75-L7-bHa"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lOI-G8-eSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="425" y="1050"/>
         </scene>
         <!--iOS Filter App-->
         <scene sceneID="XUI-cf-tte">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sAH-gj-ldg" sceneMemberID="firstResponder"/>
                 <viewController id="yIx-Zn-tAi" customClass="ViewController" customModule="iOS_Filter_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vSA-21-Uy6"/>
@@ -53,10 +52,8 @@
                                             <state key="normal" title="Save">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
-                                            <connections>
-                                                <action selector="saveFilteredPhoto:" destination="yIx-Zn-tAi" eventType="touchUpInside" id="vrX-Am-mXO"/>
-                                            </connections>
                                         </button>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,8 +94,9 @@
                         <outlet property="imageView" destination="nqo-rg-CLO" id="7dL-71-Zp4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAH-gj-ldg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868.5" y="1049.5"/>
+            <point key="canvasLocation" x="950.5" y="1049.5"/>
         </scene>
     </scenes>
 </document>

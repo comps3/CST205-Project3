@@ -1,14 +1,14 @@
 //
-//  BrightenFilter.swift
+//  InvertColorFilter.swift
 //  iOS Filter App
 //
-//  Created by Brian Huynh on 4/22/15.
+//  Created by Brian Huynh on 4/27/15.
 //  Copyright (c) 2015 Brian Huynh. All rights reserved.
 //
 
 import CoreImage
 
-class BrightenFilter: CIFilter {
+class InvertColorFilter: CIFilter {
     
     var kernel: CIColorKernel?
     var inputImage: CIImage?
@@ -40,10 +40,14 @@ class BrightenFilter: CIFilter {
     // MARK: Create Kernel
     private func createKernel() -> CIColorKernel {
         let kernelString =
-        "kernel vec4 brightenEffect (sampler src) {\n" +
-            "   vec4 currentSource = sample(src, samplerCoord(src)); \n" +
-            "   currentSource.rgb = currentSource.rgb + 0.2 * currentSource.a; \n" +
-            "   return currentSource; \n" +
+        "kernel vec4 _invertColor (sampler src) {\n" +
+            "   vec4 pixValue; \n" +
+            "   pixValue = sample(src, samplerCoord(src)); \n" +
+            "   unpremultiply(pixValue); \n" +
+            "   pixValue.r = 1.0 - pixValue.r; \n" +
+            "   pixValue.g = 1.0 - pixValue.g;  \n" +
+            "   pixValue.b = 1.0 - pixValue.b;  \n" +
+            "   return premultiply(pixValue);   \n" +
         "}"
         return CIColorKernel(string: kernelString)
     }

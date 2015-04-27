@@ -11,7 +11,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var context: CIContext!
     var currentFilter: CIFilter!
     var originalImage: UIImage!
-   
+    
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     completion: nil)
                 newMedia = true
         }
-
+        
     }
     
     @IBAction func useCameraRoll(sender: AnyObject) {
@@ -60,22 +60,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func pickFilter(sender: AnyObject) {
         
-    if newMedia {
-        let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setSobelFilter))
-        ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: setBrightenFilter))
-        ac.addAction(UIAlertAction(title: "Invert", style: .Default, handler: setInvert))
-        ac.addAction(UIAlertAction(title: "Fun Mirror", style: .Default, handler: setFunMirror))
-        ac.addAction(UIAlertAction(title: "Blur", style: .Default, handler: setBlurFilter))
-        ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
-      }
-        
-    else {
-        let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .ActionSheet)
-        noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
-        presentViewController(noPhoto, animated: true, completion: nil)
+        if newMedia {
+            let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
+            ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: applyFilter))
+            ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: applyFilter))
+            ac.addAction(UIAlertAction(title: "Invert", style: .Default, handler: applyFilter))
+            //ac.addAction(UIAlertAction(title: "Fun Mirror", style: .Default, handler: setFunMirror))
+            ac.addAction(UIAlertAction(title: "Green Red", style: .Default, handler: applyFilter))
+            ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: applyFilter))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+        }
+            
+        else {
+            let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .ActionSheet)
+            noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
+            presentViewController(noPhoto, animated: true, completion: nil)
         }
     }
     
@@ -85,7 +85,51 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
     }
     
+    // MARK: - Filter implementation hub
     
+    func applyFilter(action: UIAlertAction!) {
+        let filterRequested = action.title
+        let startingImage = CIImage(image: originalImage)
+        var finalImage = UIImage()
+        
+        if filterRequested == "Sobel" {
+            let filter = SobelFilter()
+            filter.inputImage = startingImage
+            let outputImage = filter.outputImage
+            finalImage = UIImage(CIImage: outputImage)!
+        }
+        else if filterRequested == "Brighten" {
+            let filter = BrightenFilter()
+            filter.inputImage = CIImage(image: originalImage)
+            let outputImage = filter.outputImage
+            finalImage = UIImage(CIImage: outputImage)!
+        }
+        else if filterRequested == "Invert" {
+            let filter = InvertColorFilter()
+            filter.inputImage = CIImage(image: originalImage)
+            let outputImage = filter.outputImage
+            finalImage = UIImage(CIImage: outputImage)!
+        }
+        else if filterRequested == "Green Red" {
+            let filter = GreenRedFilter()
+            filter.inputImage = CIImage(image: originalImage)
+            let outputImage = filter.outputImage
+            finalImage = UIImage(CIImage: outputImage)!
+        }
+        else if filterRequested == "CIVignette" {
+            context = CIContext(options: nil)
+            currentFilter = CIFilter(name: filterRequested)
+            currentFilter.setValue(startingImage, forKey: kCIInputImageKey)
+            self.imageView.image = applyProcessing()
+            return
+        }
+        
+        self.imageView.image = imageWithImage(finalImage, scaledToWidth: 750)
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        
+    }
+    
+    /*
     func setFilter(action: UIAlertAction!) {
         
         let beginImage = CIImage(image: originalImage)
@@ -95,9 +139,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         applyProcessing()
         
     }
-    
+    */
     // MARK: - Custom Sobel Filter
-    
+    /*
     func setSobelFilter(action: UIAlertAction!) {
         let filter = SobelFilter()
         filter.inputImage = CIImage(image: originalImage)
@@ -107,29 +151,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
     }
-    
+    */
     // MARK: - Custom Brighten Filter
-    
+    /*
     func setBrightenFilter(action: UIAlertAction!) {
         let filter = BrightenFilter()
         filter.inputImage = CIImage(image: originalImage)
-        filter.threshold = 0.2
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
         self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
         
     }
-    
-    func setInvert(action: UIAlertAction!) {
-        let filter = Invert()
-        filter.inputImage = CIImage(image: originalImage)
-        filter.threshold = 0.2
-        let outputImage = filter.outputImage
-        let filteredImage = UIImage(CIImage: outputImage)!
-        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-        
-    }
-    
+    */
+    /*
     func setFunMirror(action: UIAlertAction!) {
         let filter = FunMirror()
         filter.inputImage = CIImage(image: originalImage)
@@ -139,17 +173,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
         
     }
-    
-    // MARK: - Custom Blur Filter
-    
-    func setBlurFilter(action: UIAlertAction!) {
-        let filter = Blur()
+    */
+    /*
+    func setGreenRedFilter(action: UIAlertAction!) {
+        let filter = GreenRedFilter()
         filter.inputImage = CIImage(image: originalImage)
         let outputImage = filter.outputImage
         let filteredImage = UIImage(CIImage: outputImage)!
         self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-        
     }
+    */
+    // MARK: - Custom Invert Color Filter
+    /*
+    func setInvertColorFilter(action: UIAlertAction!) {
+        let filter = InvertColorFilter()
+        filter.inputImage = CIImage(image: originalImage)
+        let outputImage = filter.outputImage
+        let filteredImage = UIImage(CIImage: outputImage)!
+        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
+    }
+    */
+    
+    // MARK - Fix image aspect ratio
     
     func imageWithImage(image: UIImage, scaledToWidth: CGFloat) -> UIImage {
         var oldWidth: CGFloat = image.size.width
@@ -165,9 +210,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         return rotatedImage!
     }
-
     
-    func applyProcessing() {
+    
+    func applyProcessing() -> UIImage {
         
         let inputKeys = currentFilter.inputKeys() as! [NSString]
         if contains(inputKeys, kCIInputIntensityKey) { currentFilter.setValue(1, forKey: kCIInputIntensityKey) }
@@ -178,7 +223,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let cgimg = context.createCGImage(currentFilter.outputImage, fromRect: currentFilter.outputImage.extent())
         let processedImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Right)
         
-        self.imageView.image = processedImage
+        return processedImage!
     }
     
     // MARK - Save Image from Camera Frame
