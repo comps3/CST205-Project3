@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		630B48491AE8539D006FDAE0 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B48481AE8539D006FDAE0 /* Blur.swift */; };
+		636919681AEEEC31003D4B45 /* Invert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636919671AEEEC31003D4B45 /* Invert.swift */; };
+		6369196A1AEEEF9C003D4B45 /* FunhouseMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636919691AEEEF9C003D4B45 /* FunhouseMirror.swift */; };
 		F51C8C7D1ADF062A0046420E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C7C1ADF062A0046420E /* AppDelegate.swift */; };
 		F51C8C7F1ADF062A0046420E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C7E1ADF062A0046420E /* ViewController.swift */; };
 		F51C8C821ADF062A0046420E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C8C801ADF062A0046420E /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		630B48481AE8539D006FDAE0 /* Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
+		636919671AEEEC31003D4B45 /* Invert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invert.swift; sourceTree = "<group>"; };
+		636919691AEEEF9C003D4B45 /* FunhouseMirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunhouseMirror.swift; sourceTree = "<group>"; };
 		F51C8C771ADF062A0046420E /* iOS Filter App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Filter App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51C8C7B1ADF062A0046420E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F51C8C7C1ADF062A0046420E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				F51C8CA11ADF17AE0046420E /* SobelFilter.swift */,
 				F56726A21AE8410400875263 /* BrightenFilter.swift */,
 				630B48481AE8539D006FDAE0 /* Blur.swift */,
+				636919671AEEEC31003D4B45 /* Invert.swift */,
+				636919691AEEEF9C003D4B45 /* FunhouseMirror.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -244,7 +250,9 @@
 				F56726A31AE8410400875263 /* BrightenFilter.swift in Sources */,
 				F51C8C7F1ADF062A0046420E /* ViewController.swift in Sources */,
 				630B48491AE8539D006FDAE0 /* Blur.swift in Sources */,
+				636919681AEEEC31003D4B45 /* Invert.swift in Sources */,
 				F51C8C7D1ADF062A0046420E /* AppDelegate.swift in Sources */,
+				6369196A1AEEEF9C003D4B45 /* FunhouseMirror.swift in Sources */,
 				F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

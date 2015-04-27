@@ -64,6 +64,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
         ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: setSobelFilter))
         ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: setBrightenFilter))
+        ac.addAction(UIAlertAction(title: "Invert", style: .Default, handler: setInvert))
+        ac.addAction(UIAlertAction(title: "Fun Mirror", style: .Default, handler: setFunMirror))
         ac.addAction(UIAlertAction(title: "Blur", style: .Default, handler: setBlurFilter))
         ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
@@ -110,6 +112,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func setBrightenFilter(action: UIAlertAction!) {
         let filter = BrightenFilter()
+        filter.inputImage = CIImage(image: originalImage)
+        filter.threshold = 0.2
+        let outputImage = filter.outputImage
+        let filteredImage = UIImage(CIImage: outputImage)!
+        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
+        
+    }
+    
+    func setInvert(action: UIAlertAction!) {
+        let filter = Invert()
+        filter.inputImage = CIImage(image: originalImage)
+        filter.threshold = 0.2
+        let outputImage = filter.outputImage
+        let filteredImage = UIImage(CIImage: outputImage)!
+        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
+        
+    }
+    
+    func setFunMirror(action: UIAlertAction!) {
+        let filter = FunMirror()
         filter.inputImage = CIImage(image: originalImage)
         filter.threshold = 0.2
         let outputImage = filter.outputImage
