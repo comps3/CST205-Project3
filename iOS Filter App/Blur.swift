@@ -40,24 +40,24 @@ class Blur: CIFilter {
     // MARK: Create Kernel
     private func createKernel() -> CIKernel {
         let kernelString = "kernel vec4 blur (sampler src) {\n" +
-            "attribute vec4 a_position;\n" +
-            "attribute vec2 a_texCoord;\n" +
-            "uniform mat4 u_contentTransform;\n" +
-            "uniform mat2 u_texCoordTransform;\n" +
-            "uniform mat2 u_rawTexCoordTransform;\n" +
-            "uniform float u_radius;\n" +
-            "varying vec2 v_texCoord;\n" +
-            "varying vec2 v_blurTexCoords[14];\n" +
-            "varying vec2 v_rawTexCoord;\n" +
-            "gl_Position = u_contentTransform * a_position\n" +
-            "v_texCoord = u_texCoordTransform * a_texCoord;\n" +
-            "for (int i = 0; i < 7; ++i) {\n" +
-                "vec2 c = vec2(u_radius/7.0*(7.0 - float(i)), 0.0);\n" +
-                "v_blurTexCoords[i] = v_texCoord - c;\n" +
-                "v_blurTexCoords[13-i] = v_texCoord + c;\n" +
-            "}\n" +
-            "v_rawTexCoord = u_rawTexCoordTransform * gl_Position.xy * 0.5 + vec2(0.5);\n" +
-        "}"
+                            "   vec4 a_position;\n" +
+                            "   vec2 a_texCoord;\n" +
+                            "   mat4 u_contentTransform;\n" +
+                            "   mat2 u_texCoordTransform;\n" +
+                            "   mat2 u_rawTexCoordTransform;\n" +
+                            "   float u_radius;\n" +
+                            "   vec2 v_texCoord;\n" +
+                            "   vec2 v_blurTexCoords[14];\n" +
+                            "   vec2 v_rawTexCoord;\n" +
+                            "   gl_Position = u_contentTransform * a_position\n" +
+                            "   v_texCoord = u_texCoordTransform * a_texCoord;\n" +
+                            " for (int i = 0; i < 7; ++i) {\n" +
+                                "vec2 c = vec2(u_radius/7.0*(7.0 - float(i)), 0.0);\n" +
+                                "v_blurTexCoords[i] = v_texCoord - c;\n" +
+                                "v_blurTexCoords[13-i] = v_texCoord + c;\n" +
+                            "}\n" +
+                            "   v_rawTexCoord = u_rawTexCoordTransform * gl_Position.xy * 0.5 + vec2(0.5);\n" +
+                            "}"
         return CIKernel(string: kernelString)
     }
 }
