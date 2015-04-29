@@ -14,11 +14,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+        imageView.userInteractionEnabled = true
+
+        //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageEditorSegue:"))
+        
         
     }
     
-    // MARK: - Camera method
-    
+    // MARK: - Enables Hardware Camera
     @IBAction func useCamera(sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(
@@ -39,6 +42,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    // MARK: - Enables usage of User's Camera
     @IBAction func useCameraRoll(sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(
@@ -57,7 +61,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // MARK: - Filter Menu
-    
     @IBAction func pickFilter(sender: AnyObject) {
         
         if newMedia {
@@ -65,7 +68,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Invert", style: .Default, handler: applyFilter))
-            //ac.addAction(UIAlertAction(title: "Fun Mirror", style: .Default, handler: setFunMirror))
             ac.addAction(UIAlertAction(title: "Green Red", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
@@ -73,20 +75,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
             
         else {
-            let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .ActionSheet)
+            let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .Alert)
             noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
             presentViewController(noPhoto, animated: true, completion: nil)
         }
     }
     
     // MARK: - Save Filtered Photos
-    
     @IBAction func saveFilteredPhoto(sender: AnyObject) {
+        let photoSavedNotification = UIAlertController(title: "Alert", message: "Photo has been saved", preferredStyle: .Alert)
+            photoSavedNotification.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
+            presentViewController(photoSavedNotification, animated: true, completion: nil)
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
+        
     }
     
     // MARK: - Filter implementation hub
-    
     func applyFilter(action: UIAlertAction!) {
         let filterRequested = action.title
         let startingImage = CIImage(image: originalImage)
@@ -127,6 +131,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = imageWithImage(finalImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
         
+    }
+    
+    @IBAction func imageEditorSegue(sender: UIGestureRecognizer) {
+        print("Image was tapped")
     }
     
     /*
@@ -195,7 +203,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     */
     
     // MARK - Fix image aspect ratio
-    
     func imageWithImage(image: UIImage, scaledToWidth: CGFloat) -> UIImage {
         var oldWidth: CGFloat = image.size.width
         var scaleFactor: CGFloat = scaledToWidth / oldWidth
@@ -227,7 +234,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // MARK - Save Image from Camera Frame
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
