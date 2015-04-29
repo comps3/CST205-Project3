@@ -39,15 +39,13 @@ class InvertColorFilter: CIFilter {
     
     // MARK: Create Kernel
     private func createKernel() -> CIColorKernel {
+        // Super fast execution
         let kernelString =
         "kernel vec4 _invertColor (sampler src) {\n" +
             "   vec4 pixValue; \n" +
             "   pixValue = sample(src, samplerCoord(src)); \n" +
-            "   unpremultiply(pixValue); \n" +
-            "   pixValue.r = 1.0 - pixValue.r; \n" +
-            "   pixValue.g = 1.0 - pixValue.g;  \n" +
-            "   pixValue.b = 1.0 - pixValue.b;  \n" +
-            "   return premultiply(pixValue);   \n" +
+            "   pixValue.rgb = pixValue.aaa - pixValue.rgb; \n" +
+            "   return pixValue;   \n" +
         "}"
         return CIColorKernel(string: kernelString)
     }
