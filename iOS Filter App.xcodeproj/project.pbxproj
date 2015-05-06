@@ -18,6 +18,15 @@
 		F51C8C931ADF062A0046420E /* iOS_Filter_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */; };
 		F51C8C9D1ADF06D70046420E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51C8C9C1ADF06D70046420E /* CoreImage.framework */; };
 		F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8CA11ADF17AE0046420E /* SobelFilter.swift */; };
+		F54CC3D91AF82658004B3A3F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D51AF82658004B3A3F /* 1.jpg */; };
+		F54CC3DA1AF82658004B3A3F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D61AF82658004B3A3F /* 2.jpg */; };
+		F54CC3DB1AF82658004B3A3F /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D71AF82658004B3A3F /* 3.jpg */; };
+		F54CC3DC1AF82658004B3A3F /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D81AF82658004B3A3F /* 4.jpg */; };
+		F55D9A971AF84C4600CB3531 /* BrightenFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56726A21AE8410400875263 /* BrightenFilter.swift */; };
+		F55D9A981AF84C4900CB3531 /* FunhouseMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636919691AEEEF9C003D4B45 /* FunhouseMirror.swift */; };
+		F55D9A991AF84C4B00CB3531 /* InvertFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515D0821AEEF81300C47FAB /* InvertFilter.swift */; };
+		F55D9A9A1AF84C4D00CB3531 /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8CA11ADF17AE0046420E /* SobelFilter.swift */; };
+		F55D9A9B1AF84C5000CB3531 /* GreenRedFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515D0841AEEF86100C47FAB /* GreenRedFilter.swift */; };
 		F56726A31AE8410400875263 /* BrightenFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56726A21AE8410400875263 /* BrightenFilter.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +56,10 @@
 		F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Filter_AppTests.swift; sourceTree = "<group>"; };
 		F51C8C9C1ADF06D70046420E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F51C8CA11ADF17AE0046420E /* SobelFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobelFilter.swift; sourceTree = "<group>"; };
+		F54CC3D51AF82658004B3A3F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../../Desktop/1.jpg; sourceTree = "<group>"; };
+		F54CC3D61AF82658004B3A3F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = ../../../Desktop/2.jpg; sourceTree = "<group>"; };
+		F54CC3D71AF82658004B3A3F /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = ../../../Desktop/3.jpg; sourceTree = "<group>"; };
+		F54CC3D81AF82658004B3A3F /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../../Desktop/4.jpg; sourceTree = "<group>"; };
 		F56726A21AE8410400875263 /* BrightenFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightenFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +104,7 @@
 		F51C8C791ADF062A0046420E /* iOS Filter App */ = {
 			isa = PBXGroup;
 			children = (
+				F54CC3D41AF825E2004B3A3F /* Test Images */,
 				F56EFAA11AE4416500D359E7 /* Filters */,
 				F51C8C7C1ADF062A0046420E /* AppDelegate.swift */,
 				F51C8C7E1ADF062A0046420E /* ViewController.swift */,
@@ -133,6 +147,17 @@
 				F51C8C9C1ADF06D70046420E /* CoreImage.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F54CC3D41AF825E2004B3A3F /* Test Images */ = {
+			isa = PBXGroup;
+			children = (
+				F54CC3D51AF82658004B3A3F /* 1.jpg */,
+				F54CC3D61AF82658004B3A3F /* 2.jpg */,
+				F54CC3D71AF82658004B3A3F /* 3.jpg */,
+				F54CC3D81AF82658004B3A3F /* 4.jpg */,
+			);
+			name = "Test Images";
 			sourceTree = "<group>";
 		};
 		F56EFAA11AE4416500D359E7 /* Filters */ = {
@@ -228,6 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51C8C821ADF062A0046420E /* Main.storyboard in Resources */,
+				F54CC3DC1AF82658004B3A3F /* 4.jpg in Resources */,
+				F54CC3D91AF82658004B3A3F /* 1.jpg in Resources */,
+				F54CC3DA1AF82658004B3A3F /* 2.jpg in Resources */,
+				F54CC3DB1AF82658004B3A3F /* 3.jpg in Resources */,
 				F51C8C871ADF062A0046420E /* LaunchScreen.xib in Resources */,
 				F51C8C841ADF062A0046420E /* Images.xcassets in Resources */,
 			);
@@ -261,7 +290,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F55D9A9B1AF84C5000CB3531 /* GreenRedFilter.swift in Sources */,
+				F55D9A971AF84C4600CB3531 /* BrightenFilter.swift in Sources */,
+				F55D9A991AF84C4B00CB3531 /* InvertFilter.swift in Sources */,
 				F51C8C931ADF062A0046420E /* iOS_Filter_AppTests.swift in Sources */,
+				F55D9A981AF84C4900CB3531 /* FunhouseMirror.swift in Sources */,
+				F55D9A9A1AF84C4D00CB3531 /* SobelFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "iOS Filter App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "iOS Filter App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

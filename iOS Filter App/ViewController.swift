@@ -15,10 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         imageView.userInteractionEnabled = true
-
         //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageEditorSegue:"))
-        
-        
     }
     
     // MARK: - Enables Hardware Camera
@@ -87,11 +84,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             photoSavedNotification.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
             presentViewController(photoSavedNotification, animated: true, completion: nil)
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
-        
     }
     
     // MARK: - Filter implementation hub
     func applyFilter(action: UIAlertAction!) {
+        
         let filterRequested = action.title
         let startingImage = CIImage(image: originalImage)
         var finalImage = UIImage()
@@ -129,14 +126,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         self.imageView.image = imageWithImage(finalImage, scaledToWidth: 750)
-        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit        
     }
-    
-    @IBAction func imageEditorSegue(sender: UIGestureRecognizer) {
-        print("Image was tapped")
-    }
-    
+
     /*
     func setFilter(action: UIAlertAction!) {
         
