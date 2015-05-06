@@ -14,14 +14,9 @@
 		F51C8C7F1ADF062A0046420E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C7E1ADF062A0046420E /* ViewController.swift */; };
 		F51C8C821ADF062A0046420E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C8C801ADF062A0046420E /* Main.storyboard */; };
 		F51C8C841ADF062A0046420E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51C8C831ADF062A0046420E /* Images.xcassets */; };
-		F51C8C871ADF062A0046420E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51C8C851ADF062A0046420E /* LaunchScreen.xib */; };
 		F51C8C931ADF062A0046420E /* iOS_Filter_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */; };
 		F51C8C9D1ADF06D70046420E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51C8C9C1ADF06D70046420E /* CoreImage.framework */; };
 		F51C8CA21ADF17AE0046420E /* SobelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C8CA11ADF17AE0046420E /* SobelFilter.swift */; };
-		F54CC3D91AF82658004B3A3F /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D51AF82658004B3A3F /* 1.jpg */; };
-		F54CC3DA1AF82658004B3A3F /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D61AF82658004B3A3F /* 2.jpg */; };
-		F54CC3DB1AF82658004B3A3F /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D71AF82658004B3A3F /* 3.jpg */; };
-		F54CC3DC1AF82658004B3A3F /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F54CC3D81AF82658004B3A3F /* 4.jpg */; };
 		F55D9A971AF84C4600CB3531 /* BrightenFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56726A21AE8410400875263 /* BrightenFilter.swift */; };
 		F55D9A981AF84C4900CB3531 /* FunhouseMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636919691AEEEF9C003D4B45 /* FunhouseMirror.swift */; };
 		F55D9A991AF84C4B00CB3531 /* InvertFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515D0821AEEF81300C47FAB /* InvertFilter.swift */; };
@@ -50,16 +45,11 @@
 		F51C8C7E1ADF062A0046420E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F51C8C811ADF062A0046420E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F51C8C831ADF062A0046420E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F51C8C861ADF062A0046420E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F51C8C8C1ADF062A0046420E /* iOS Filter AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Filter AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51C8C911ADF062A0046420E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F51C8C921ADF062A0046420E /* iOS_Filter_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Filter_AppTests.swift; sourceTree = "<group>"; };
 		F51C8C9C1ADF06D70046420E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F51C8CA11ADF17AE0046420E /* SobelFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobelFilter.swift; sourceTree = "<group>"; };
-		F54CC3D51AF82658004B3A3F /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../../Desktop/1.jpg; sourceTree = "<group>"; };
-		F54CC3D61AF82658004B3A3F /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = ../../../Desktop/2.jpg; sourceTree = "<group>"; };
-		F54CC3D71AF82658004B3A3F /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 3.jpg; path = ../../../Desktop/3.jpg; sourceTree = "<group>"; };
-		F54CC3D81AF82658004B3A3F /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../../Desktop/4.jpg; sourceTree = "<group>"; };
 		F56726A21AE8410400875263 /* BrightenFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightenFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +100,6 @@
 				F51C8C7E1ADF062A0046420E /* ViewController.swift */,
 				F51C8C801ADF062A0046420E /* Main.storyboard */,
 				F51C8C831ADF062A0046420E /* Images.xcassets */,
-				F51C8C851ADF062A0046420E /* LaunchScreen.xib */,
 				F51C8C7A1ADF062A0046420E /* Supporting Files */,
 			);
 			path = "iOS Filter App";
@@ -152,10 +141,6 @@
 		F54CC3D41AF825E2004B3A3F /* Test Images */ = {
 			isa = PBXGroup;
 			children = (
-				F54CC3D51AF82658004B3A3F /* 1.jpg */,
-				F54CC3D61AF82658004B3A3F /* 2.jpg */,
-				F54CC3D71AF82658004B3A3F /* 3.jpg */,
-				F54CC3D81AF82658004B3A3F /* 4.jpg */,
 			);
 			name = "Test Images";
 			sourceTree = "<group>";
@@ -253,11 +238,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51C8C821ADF062A0046420E /* Main.storyboard in Resources */,
-				F54CC3DC1AF82658004B3A3F /* 4.jpg in Resources */,
-				F54CC3D91AF82658004B3A3F /* 1.jpg in Resources */,
-				F54CC3DA1AF82658004B3A3F /* 2.jpg in Resources */,
-				F54CC3DB1AF82658004B3A3F /* 3.jpg in Resources */,
-				F51C8C871ADF062A0046420E /* LaunchScreen.xib in Resources */,
 				F51C8C841ADF062A0046420E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,14 +296,6 @@
 				F51C8C811ADF062A0046420E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F51C8C851ADF062A0046420E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F51C8C861ADF062A0046420E /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
