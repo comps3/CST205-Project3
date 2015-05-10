@@ -59,14 +59,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func pickFilter(sender: AnyObject) {
         
         if newMedia {
+            
             let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
+            
+            ac.addAction(UIAlertAction(title: "Original", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Invert", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Green Red", style: .Default, handler: applyFilter))
-            ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            
             presentViewController(ac, animated: true, completion: nil)
+            
         }
             
         else {
@@ -90,8 +94,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let filterRequested = action.title
         let startingImage = CIImage(image: originalImage)
         var finalImage = UIImage()
-        
-        if filterRequested == "Sobel" {
+        if filterRequested == "Original" {
+            self.imageView.image = originalImage
+            return
+        }
+        else if filterRequested == "Sobel" {
             let filter = SobelFilter()
             filter.inputImage = startingImage
             let outputImage = filter.outputImage
@@ -115,13 +122,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let outputImage = filter.outputImage
             finalImage = UIImage(CIImage: outputImage)!
         }
-        else if filterRequested == "CIVignette" {
-            context = CIContext(options: nil)
-            currentFilter = CIFilter(name: filterRequested)
-            currentFilter.setValue(startingImage, forKey: kCIInputImageKey)
-            self.imageView.image = applyProcessing()
-            return
-        }
         
         self.imageView.image = imageWithImage(finalImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit        
@@ -143,20 +143,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return rotatedImage!
     }
     
-    
-    func applyProcessing() -> UIImage {
-        
-        let inputKeys = currentFilter.inputKeys() as! [NSString]
-        if contains(inputKeys, kCIInputIntensityKey) { currentFilter.setValue(1, forKey: kCIInputIntensityKey) }
-        if contains(inputKeys, kCIInputRadiusKey) { currentFilter.setValue(200, forKey: kCIInputRadiusKey) }
-        if contains(inputKeys, kCIInputScaleKey) { currentFilter.setValue(10, forKey: kCIInputScaleKey) }
-        if contains(inputKeys, kCIInputCenterKey) { currentFilter.setValue(CIVector(x: imageView.image!.size.width / 2, y: imageView.image!.size.height / 2), forKey: kCIInputCenterKey) }
-        
-        let cgimg = context.createCGImage(currentFilter.outputImage, fromRect: currentFilter.outputImage.extent())
-        let processedImage = UIImage(CGImage: cgimg, scale: 1.0, orientation: UIImageOrientation.Right)
-        
-        return processedImage!
-    }
     
     // MARK - Save Image from Camera Frame
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
