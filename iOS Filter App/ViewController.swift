@@ -1,5 +1,3 @@
-
-
 import UIKit
 import AVFoundation
 import MobileCoreServices
@@ -128,71 +126,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = imageWithImage(finalImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit        
     }
-
-    /*
-    func setFilter(action: UIAlertAction!) {
-        
-        let beginImage = CIImage(image: originalImage)
-        context = CIContext(options: nil)
-        currentFilter = CIFilter(name: action.title)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        applyProcessing()
-        
-    }
-    */
-    // MARK: - Custom Sobel Filter
-    /*
-    func setSobelFilter(action: UIAlertAction!) {
-        let filter = SobelFilter()
-        filter.inputImage = CIImage(image: originalImage)
-        let outputImage = filter.outputImage
-        let filteredImage = UIImage(CIImage: outputImage)!
-        
-        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
-    }
-    */
-    // MARK: - Custom Brighten Filter
-    /*
-    func setBrightenFilter(action: UIAlertAction!) {
-        let filter = BrightenFilter()
-        filter.inputImage = CIImage(image: originalImage)
-        let outputImage = filter.outputImage
-        let filteredImage = UIImage(CIImage: outputImage)!
-        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-        
-    }
-    */
-    /*
-    func setFunMirror(action: UIAlertAction!) {
-        let filter = FunMirror()
-        filter.inputImage = CIImage(image: originalImage)
-        filter.threshold = 0.2
-        let outputImage = filter.outputImage
-        let filteredImage = UIImage(CIImage: outputImage)!
-        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-        
-    }
-    */
-    /*
-    func setGreenRedFilter(action: UIAlertAction!) {
-        let filter = GreenRedFilter()
-        filter.inputImage = CIImage(image: originalImage)
-        let outputImage = filter.outputImage
-        let filteredImage = UIImage(CIImage: outputImage)!
-        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-    }
-    */
-    // MARK: - Custom Invert Color Filter
-    /*
-    func setInvertColorFilter(action: UIAlertAction!) {
-        let filter = InvertColorFilter()
-        filter.inputImage = CIImage(image: originalImage)
-        let outputImage = filter.outputImage
-        let filteredImage = UIImage(CIImage: outputImage)!
-        self.imageView.image = imageWithImage(filteredImage, scaledToWidth: 750)
-    }
-    */
     
     // MARK - Fix image aspect ratio
     func imageWithImage(image: UIImage, scaledToWidth: CGFloat) -> UIImage {

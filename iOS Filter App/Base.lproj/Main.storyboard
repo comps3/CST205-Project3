@@ -42,36 +42,31 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-lo-TxQ">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="jff-jF-aN7">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Filter" id="ePj-Ah-UQS">
+                                    <barButtonItem title="Filter" id="ymh-8l-gUb">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="pickFilter:" destination="yIx-Zn-tAi" id="ACN-zn-ESC"/>
-                                        </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="273" style="plain" systemItem="fixedSpace" id="p24-fv-QR2"/>
-                                    <barButtonItem title="Save" id="5ru-st-w9t">
+                                    <barButtonItem width="274" style="plain" systemItem="fixedSpace" id="Tj8-Bh-pnq"/>
+                                    <barButtonItem title="Save" id="87g-8C-Svx">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="saveFilteredPhoto:" destination="yIx-Zn-tAi" id="U3O-VS-kZf"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="iOS Filter App" id="mzt-uJ-iRT">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="camera" id="Hsl-L0-Yf9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Hsl-L0-Yf9">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="useCamera:" destination="yIx-Zn-tAi" id="s9H-gg-EQd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="QTL-fT-R8R">
+                        <barButtonItem key="rightBarButtonItem" id="QTL-fT-R8R">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UYb-Ab-nZy">
                                 <rect key="frame" x="-23" y="-15" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,7 +81,7 @@
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
