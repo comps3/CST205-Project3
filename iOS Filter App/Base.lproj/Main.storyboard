@@ -47,10 +47,16 @@
                                 <items>
                                     <barButtonItem title="Filter" id="ymh-8l-gUb">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="pickFilter:" destination="yIx-Zn-tAi" id="ke8-Dj-P0c"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="274" style="plain" systemItem="fixedSpace" id="Tj8-Bh-pnq"/>
                                     <barButtonItem title="Save" id="87g-8C-Svx">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="saveFilteredPhoto:" destination="yIx-Zn-tAi" id="pyB-Zh-nCJ"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -60,25 +66,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="iOS Filter App" id="mzt-uJ-iRT">
-                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Hsl-L0-Yf9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Hsl-L0-Yf9">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="useCamera:" destination="yIx-Zn-tAi" id="s9H-gg-EQd"/>
                             </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="QTL-fT-R8R">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UYb-Ab-nZy">
-                                <rect key="frame" x="-23" y="-15" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Photos">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="useCameraRoll:" destination="yIx-Zn-tAi" eventType="touchUpInside" id="6au-AO-1pB"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
