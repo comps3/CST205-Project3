@@ -88,6 +88,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
     }
     
+    @IBAction func sharePhoto(sender: AnyObject) {
+        if newMedia {
+            let activityItems = [UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypeAirDrop]
+            let convertImage: UIImage = self.imageView.image!
+            let imageShared = [convertImage]
+            let shareViewController = UIActivityViewController(activityItems: imageShared, applicationActivities: nil)
+            shareViewController.excludedActivityTypes =  [UIActivityTypePrint]
+            presentViewController(shareViewController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
     // MARK: - Filter implementation hub
     func applyFilter(action: UIAlertAction!) {
         
