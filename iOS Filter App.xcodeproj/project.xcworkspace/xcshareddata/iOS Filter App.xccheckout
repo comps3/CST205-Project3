@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>68B03C8E-4190-43B9-84CC-BD52067B57C0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>iOS Filter App</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>04246C68AFB5DC23EDA8BD368A878533976A1B60</key>
 		<string>https://github.com/tvnerd/CST205-Project3.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS Filter App.xcodeproj/project.xcworkspace</string>
+	<string>iOS Filter App.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>04246C68AFB5DC23EDA8BD368A878533976A1B60</key>
