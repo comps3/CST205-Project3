@@ -38,7 +38,7 @@ class SobelFilter: CIFilter {
         return nil
     }
     
-    // MARK: - Utility methods
+    // MARK: - Utility methods (Detects the edges changes their colors and darkens rest of image)
     private func createKernel() -> CIKernel {
         let kernelString =
         "kernel vec4 sobel (sampler image) {\n" +

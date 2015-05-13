@@ -37,7 +37,7 @@ class InvertColorFilter: CIFilter {
         return nil
     }
     
-    // MARK: Create Kernel
+    // MARK: Create Kernel (Takes each color (RGB) and inverts it)
     private func createKernel() -> CIColorKernel {
         // Super fast execution
         let kernelString =
