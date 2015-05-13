@@ -91,7 +91,6 @@
 		F51C8C791ADF062A0046420E /* iOS Filter App */ = {
 			isa = PBXGroup;
 			children = (
-				F54CC3D41AF825E2004B3A3F /* Test Images */,
 				F56EFAA11AE4416500D359E7 /* Filters */,
 				F51C8C7C1ADF062A0046420E /* AppDelegate.swift */,
 				F51C8C7E1ADF062A0046420E /* ViewController.swift */,
@@ -133,13 +132,6 @@
 				F51C8C9C1ADF06D70046420E /* CoreImage.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F54CC3D41AF825E2004B3A3F /* Test Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Test Images";
 			sourceTree = "<group>";
 		};
 		F56EFAA11AE4416500D359E7 /* Filters */ = {

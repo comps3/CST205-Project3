@@ -27,7 +27,9 @@ class GreenRedFilter: CIFilter {
     override var outputImage : CIImage! {
         if let inputImage = inputImage,
             let kernel = kernel {
+                 // Input arguments for the filter
                 let args = [inputImage as AnyObject]
+                 // Domain of definition
                 let dod = inputImage.extent().rectByInsetting(dx: -1, dy: -1)
                 return kernel.applyWithExtent(dod, roiCallback: {
                     (index, rect) in
@@ -39,6 +41,7 @@ class GreenRedFilter: CIFilter {
     
     // MARK: Color Kernel (Swaps red color values with green)
     private func createKernel() -> CIColorKernel {
+        // Swap the red pixel values with green pixel values
         let kernelString =
         "kernel vec4 greenRed (sampler src) {\n" +
             "   float swap = 0.0; \n" +

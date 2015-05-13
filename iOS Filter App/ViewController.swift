@@ -11,17 +11,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var originalImage: UIImage!
     
     override func viewDidLoad() {
+        // Sets the header color to Black
         navigationController?.navigationBar.barTintColor = UIColor.blackColor()
         imageView.userInteractionEnabled = true
-        //imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "imageEditorSegue:"))
     }
     
     // MARK: - Enables Hardware Camera
     @IBAction func useCamera(sender: AnyObject) {
         
+        // Checks if phone has a camera enabled
         if UIImagePickerController.isSourceTypeAvailable(
             UIImagePickerControllerSourceType.Camera) {
-                
+                // Initializes a UIImagePickerController
                 let imagePicker = UIImagePickerController()
                 
                 imagePicker.delegate = self
@@ -29,7 +30,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     UIImagePickerControllerSourceType.Camera
                 imagePicker.mediaTypes = [kUTTypeImage as NSString]
                 imagePicker.allowsEditing = false
-                
+                // Present UIImagePickerController view onto view
                 self.presentViewController(imagePicker, animated: true,
                     completion: nil)
                 newMedia = true
@@ -37,14 +38,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-    // MARK: - Enables usage of User's Camera
+    // MARK: - Enables usage of user's cameraroll
     @IBAction func useCameraRoll(sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(
             UIImagePickerControllerSourceType.SavedPhotosAlbum) {
+                // Initializes a UIImagePickerController
                 let imagePicker = UIImagePickerController()
                 
                 imagePicker.delegate = self
+                // Sets the source of the images to Camera Roll
                 imagePicker.sourceType =
                     UIImagePickerControllerSourceType.PhotoLibrary
                 imagePicker.mediaTypes = [kUTTypeImage as NSString]
@@ -59,21 +62,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func pickFilter(sender: AnyObject) {
         
         if newMedia {
-            
+            // When 'Filter' button is pressed, it presents a menu that allows the users to select a filter
             let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
-            
+            // List of filters
+            // When a filter is choosen, it calls a function that determines which filter to apply
             ac.addAction(UIAlertAction(title: "Original", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Sobel", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Brighten", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Invert", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Green Red", style: .Default, handler: applyFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            
+            // Presents filter menu onscreen
             presentViewController(ac, animated: true, completion: nil)
             
         }
             
         else {
+            // If a photo has not been taken, the app displays an alert to the user
+            // asking for the user to take a photo before applying a filter
             let noPhoto = UIAlertController(title: "Alert", message: "Filter can not be applied without a photo", preferredStyle: .Alert)
             noPhoto.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
             presentViewController(noPhoto, animated: true, completion: nil)
@@ -82,6 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Save Filtered Photos
     @IBAction func saveFilteredPhoto(sender: AnyObject) {
+        // An alert is displayed once the photo has been saved to the user's camera roll.
         let photoSavedNotification = UIAlertController(title: "Alert", message: "Photo has been saved", preferredStyle: .Alert)
             photoSavedNotification.addAction(UIAlertAction(title: "Exit", style: .Cancel, handler: nil))
             presentViewController(photoSavedNotification, animated: true, completion: nil)
@@ -90,6 +97,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Opens Share Sheet
     @IBAction func sharePhoto(sender: AnyObject) {
+        // A menu pane is displayed when the user clicks 'Share' button
+        // User is able to share one's creation on social media or AirDrop
         if newMedia {
             let activityItems = [UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypeAirDrop]
             let convertImage: UIImage = self.imageView.image!
@@ -104,10 +113,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Filter implementation hub; Lets user select which filter to apply
     func applyFilter(action: UIAlertAction!) {
-        
+        // Gets the name of the filter the user desires
         let filterRequested = action.title
+        // Tranforms the original image to CIImage
         let startingImage = CIImage(image: originalImage)
         var finalImage = UIImage()
+        // Control flow that determines which filter should be applied
         if filterRequested == "Original" {
             self.imageView.image = originalImage
             return
@@ -137,6 +148,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             finalImage = UIImage(CIImage: outputImage)!
         }
         
+        // Function call to 'imageWithImage' that corrects the aspect ratio
+        // of the photo in order for it to properly fit on the user's screen
         self.imageView.image = imageWithImage(finalImage, scaledToWidth: 750)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit        
     }
@@ -149,6 +162,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var newHeight = image.size.height * scaleFactor
         var newWidth = oldWidth * scaleFactor
         
+        // Creates a new image that scales to the screen's height and width
         UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
         image.drawInRect(CGRect(x: 0,y: 0, width: newWidth, height: newHeight))
         var newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -163,12 +177,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
         
+        // Pushes away the camera view controller once user finished
+        // taking the photo
         self.dismissViewControllerAnimated(true, completion: nil)
         
         if mediaType.isEqualToString(kUTTypeImage as String) {
             let image = info[UIImagePickerControllerOriginalImage]
                 as! UIImage
             
+            // Save the image taken
             imageView.image = image
             originalImage = image
             
@@ -183,7 +200,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - Error checking
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
-        
+        // In case if the app is unable to save the image
         if error != nil {
             let alert = UIAlertController(title: "Save Failed",
                 message: "Failed to save image",

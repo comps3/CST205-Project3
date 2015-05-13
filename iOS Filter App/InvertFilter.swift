@@ -27,7 +27,9 @@ class InvertColorFilter: CIFilter {
     override var outputImage : CIImage! {
         if let inputImage = inputImage,
             let kernel = kernel {
+                 // Input arguments for the filter
                 let args = [inputImage as AnyObject]
+                 // Domain of definition
                 let dod = inputImage.extent().rectByInsetting(dx: -1, dy: -1)
                 return kernel.applyWithExtent(dod, roiCallback: {
                     (index, rect) in
