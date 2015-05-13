@@ -37,7 +37,7 @@ class BrightenFilter: CIFilter {
         return nil
     }
     
-    // MARK: Create Kernel
+    // MARK: Create Kernel (Increases brightness by 20%)
     private func createKernel() -> CIColorKernel {
         let kernelString =
         "kernel vec4 brightenEffect (sampler src) {\n" +

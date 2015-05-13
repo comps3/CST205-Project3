@@ -37,7 +37,7 @@ class GreenRedFilter: CIFilter {
         return nil
     }
     
-    // MARK: Color Kernel
+    // MARK: Color Kernel (Swaps red color values with green)
     private func createKernel() -> CIColorKernel {
         let kernelString =
         "kernel vec4 greenRed (sampler src) {\n" +
