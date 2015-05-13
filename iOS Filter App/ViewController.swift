@@ -88,6 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, Selector("image:didFinishSavingWithError:contextInfo:"), nil)
     }
     
+    // MARK: - Opens Share Sheet
     @IBAction func sharePhoto(sender: AnyObject) {
         if newMedia {
             let activityItems = [UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypeAirDrop]
@@ -101,7 +102,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    // MARK: - Filter implementation hub
+    // MARK: - Filter implementation hub; Lets user select which filter to apply
     func applyFilter(action: UIAlertAction!) {
         
         let filterRequested = action.title
@@ -140,7 +141,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFit        
     }
     
-    // MARK - Fix image aspect ratio
+    // MARK: - Fix image aspect ratio (fit screen)
     func imageWithImage(image: UIImage, scaledToWidth: CGFloat) -> UIImage {
         var oldWidth: CGFloat = image.size.width
         var scaleFactor: CGFloat = scaledToWidth / oldWidth
@@ -157,7 +158,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    // MARK - Save Image from Camera Frame
+    // MARK: - Save Image from Camera Frame
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
@@ -180,6 +181,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // MARK: - Error checking
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
         
         if error != nil {
@@ -196,6 +198,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    // MARK: -  Dismisses camera view if user hits cancel
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
